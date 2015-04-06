@@ -1,0 +1,13 @@
+%h1 List of Babies
+= link_to 'New Baby', new_baby_path
+%hr
+- @babies.each do |baby|
+  %p= link_to baby.name, baby_path(baby)
+  %p= "Baby Weight: #{pluralize(baby.weight, 'ounce')}"
+  %p= "Baby Length: #{pluralize(baby.length, 'inch')}"
+  %p
+    = link_to 'Change name', edit_baby_path(baby)
+    = link_to 'Make annonymous', baby_path(baby), method: :delete, data:{confirm: 'Sure?'}
+  %hr
+  %script
+    prompt('Do you want to add a baby name?')

@@ -1,0 +1,6 @@
+%h1 Baby
+= link_to 'Index', babies_path
+%hr
+%p= "Name: #{@baby.name}"
+%p= "Weight: #{pluralize(@baby.weight, 'ounces')}"
+%p= "Length: #{pluralize(@baby.length, 'inches')}"
